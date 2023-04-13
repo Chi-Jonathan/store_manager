@@ -16,6 +16,12 @@ defmodule StoreManagerWeb.Router do
 
   scope "/", StoreManagerWeb do
     pipe_through :browser
+    live "/clerks", ClerkLive.Index, :index
+    live "/clerks/new", ClerkLive.Index, :new
+    live "/clerks/:id/edit", ClerkLive.Index, :edit
+
+    live "/clerks/:id", ClerkLive.Show, :show
+    live "/clerks/:id/show/edit", ClerkLive.Show, :edit
     live "/stores", StoreLive.Index, :index
     live "/stores/new", StoreLive.Index, :new
     live "/stores/:id/edit", StoreLive.Index, :edit
